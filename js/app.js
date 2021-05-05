@@ -9,6 +9,7 @@ const game = new Game();
  * Listens for click on `btn__reset` and calls startGame() on game object
  */
  document.getElementById('btn__reset').addEventListener('click', function(){
+
     console.log('HERE');
 });
 /** 
@@ -18,5 +19,7 @@ document.getElementById('qwerty').addEventListener('click', function(){
     console.log('HERE');
 });
 
-const phrase = new Phrase('Life is like a box of chocolates');
-console.log(`Phrase - phrase: ${phrase.phrase}`);
+game.phrases.forEach((phrase, index) => {
+    console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
+});
+    

@@ -7,8 +7,21 @@ scoreboard.*/
 class Game {
     constructor() {
         this.missed = 0;
-        this.phrases = [];
+        this.phrases = this.createPhrases();
         this.activePhrase = null;
+    }
+    /**
+    * Creates phrases for use in game
+    * @return {array} An array of Doctor who phrases that could be used in the game
+    */
+    createPhrases(){
+        const phrases = [    new Phrase('Exterminate'),  
+                            new Phrase('Bow ties are cool'),
+                            new Phrase('Spoilers'), 
+                            new Phrase('Reverse the polarity of the neutron flow'),  
+                            new Phrase('The Doctor lies'),                          
+                        ];
+        return  phrases;
     }
 
 }
