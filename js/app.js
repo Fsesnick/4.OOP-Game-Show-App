@@ -22,4 +22,14 @@ document.getElementById('qwerty').addEventListener('click', function(){
 game.phrases.forEach((phrase, index) => {
     console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
 });
+
+const logPhrase = (phrase) => {
+    console.log(`Phrase - phrase: `, phrase.phrase);
+    };
+   // const game = new Game();
+    logPhrase(game.getRandomPhrase());
+    logPhrase(game.getRandomPhrase());
+    logPhrase(game.getRandomPhrase());
+    logPhrase(game.getRandomPhrase());
+    logPhrase(game.getRandomPhrase());
     

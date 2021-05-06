@@ -15,13 +15,26 @@ class Game {
     * @return {array} An array of Doctor who phrases that could be used in the game
     */
     createPhrases(){
-        const phrases = [    new Phrase('Exterminate'),  
+        const phrases = [   new Phrase('Exterminate'),  
                             new Phrase('Bow ties are cool'),
                             new Phrase('Spoilers'), 
                             new Phrase('Reverse the polarity of the neutron flow'),  
                             new Phrase('The Doctor lies'),                          
                         ];
         return  phrases;
-    }
+    };
+/**
+* Selects random phrase from phrases property
+* @return {Object} Phrase object chosen to be used
+*/
+    getRandomPhrase(){
+        const randomNumber = Math.ceil (Math.random() * this.phrases.length -1 );
+
+        let randomPhrase = this.phrases[randomNumber];
+
+      
+        // Return the random quote object
+        return randomPhrase;
+    };
 
 }
