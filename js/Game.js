@@ -29,10 +29,7 @@ class Game {
 */
     getRandomPhrase(){
         const randomNumber = Math.ceil (Math.random() * this.phrases.length -1 );
-
-        let randomPhrase = this.phrases[randomNumber];
-
-      
+        let randomPhrase = this.phrases[randomNumber];      
         // Return the random quote object
         return randomPhrase;
     };

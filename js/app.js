@@ -19,6 +19,15 @@ document.getElementById('qwerty').addEventListener('click', function(){
     console.log('HERE');
 });
 
+//const game = new Game();
+game.getRandomPhrase().addPhraseToDisplay();
+
+
+/**
+ * Tests
+ */
+
+/*
 game.phrases.forEach((phrase, index) => {
     console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
 });
@@ -26,10 +35,10 @@ game.phrases.forEach((phrase, index) => {
 const logPhrase = (phrase) => {
     console.log(`Phrase - phrase: `, phrase.phrase);
     };
-   // const game = new Game();
+    const game = new Game();
     logPhrase(game.getRandomPhrase());
     logPhrase(game.getRandomPhrase());
     logPhrase(game.getRandomPhrase());
     logPhrase(game.getRandomPhrase());
     logPhrase(game.getRandomPhrase());
-    
+*/
