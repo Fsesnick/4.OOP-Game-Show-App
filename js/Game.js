@@ -18,20 +18,30 @@ class Game {
         const phrases = [   new Phrase('Exterminate'),  
                             new Phrase('Bow ties are cool'),
                             new Phrase('Spoilers'), 
-                            new Phrase('Reverse the polarity of the neutron flow'),  
+                            new Phrase('Fantastic'),  
                             new Phrase('The Doctor lies'),                          
                         ];
         return  phrases;
     };
-/**
-* Selects random phrase from phrases property
-* @return {Object} Phrase object chosen to be used
-*/
+    /**
+    * Selects random phrase from phrases property
+    * @return {Object} Phrase object chosen to be used
+    */
     getRandomPhrase(){
         const randomNumber = Math.ceil (Math.random() * this.phrases.length -1 );
         let randomPhrase = this.phrases[randomNumber];      
         // Return the random quote object
         return randomPhrase;
     };
+    /**
+    * Begins game by selecting a random phrase and displaying it to user
+    */
+    startGame() {
+        document.getElementById('overlay').style.display = 'none';
+        this.activePhrase = this.getRandomPhrase();
+        console.log(this.activePhrase );
 
+        this.activePhrase.addPhraseToDisplay();
+    };
+  
 }

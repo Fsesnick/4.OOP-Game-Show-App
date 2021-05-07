@@ -17,8 +17,8 @@ addPhraseToDisplay(){
    for(let i=0; i<this.phrase.length; i++){
        const li = document.createElement('li'); // create a li elemnt for each letter
        ul.appendChild(li);
-       
-        let res = phrase.phrase.substring(i,i+1); 
+      // console.log(this.phrase);
+        let res = this.phrase.substring(i,i+1); 
         console.log(res);
 
         li.innerHTML = res;
@@ -34,5 +34,5 @@ addPhraseToDisplay(){
 };
 
 }
-const phrase = new Phrase('New phrase');
-phrase.addPhraseToDisplay();
+/*const phrase = new Phrase('New phrase');
+phrase.addPhraseToDisplay();*/
