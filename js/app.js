@@ -11,16 +11,18 @@ const game = new Game();
  document.getElementById('btn__reset').addEventListener('click', function(){
 
     console.log('HERE');
+    game.startGame();
 });
 /** 
  * Listens for click on qwerty buttons 
  */
 document.getElementById('qwerty').addEventListener('click', function(){
     console.log('HERE');
+  
 });
 
-//const game = new Game();
-//game.getRandomPhrase().addPhraseToDisplay();
+/*const game = new Game();
+game.getRandomPhrase().addPhraseToDisplay();
 game.startGame();
 console.log(`Active Phrase - phrase: ${game.activePhrase.phrase}`);
 
