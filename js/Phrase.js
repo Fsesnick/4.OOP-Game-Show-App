@@ -12,7 +12,7 @@ class Phrase {
  */
 addPhraseToDisplay(){
 
-   const ul = document.querySelector('#phrase ul'); // Select ul element
+   const ul = document.querySelector('#phrase ul'); // Select ul element  
 
    for(let i=0; i<this.phrase.length; i++){
        const li = document.createElement('li'); // create a li elemnt for each letter
@@ -47,14 +47,14 @@ checkLetter(letter) {
 * @param (string) letter - Letter to display
 */
 showMatchedLetter(letter) {
-    if(this.checkLetter(letter)){
+        
         let matchedLetters = document.querySelectorAll(`.${letter}`);
 
         for(let i = 0; i < matchedLetters.length; i++){
         matchedLetters[i].classList.remove('hide');
         matchedLetters[i].classList.add('show');
         }
-     }
+     
 };
 
 }

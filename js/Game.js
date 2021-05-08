@@ -28,9 +28,10 @@ class Game {
     * @return {Object} Phrase object chosen to be used
     */
     getRandomPhrase(){
+        
         const randomNumber = Math.ceil (Math.random() * this.phrases.length -1 );
         let randomPhrase = this.phrases[randomNumber];      
-        // Return the random quote object
+
         return randomPhrase;
     };
     /**
@@ -43,11 +44,17 @@ class Game {
         this.activePhrase.addPhraseToDisplay();
     };
 
-    handleInteraction(e){
-        //console.log(e.target.innerHTML);
-        //console.log(this.activePhrase);
-       /// this.activePhrase.checkLetter(e.target.innerHTML);
-       this.activePhrase.showMatchedLetter(e.target.innerHTML);
+    handleInteraction(button){
+  
+        if(this.activePhrase.checkLetter(button.target.innerHTML)){
+          this.activePhrase.showMatchedLetter(button.target.innerHTML);
+          this.checkForWin();
+          button.target.classList = 'chosen';
+          
+       }else{
+           this.removeLife();
+           button.target.classList = 'wrong';
+       }
 
     };
 
@@ -55,19 +62,71 @@ class Game {
     * Checks for winning move
     * @return {boolean} True if game has been won, false if game wasn't won
     */
-    checkForWin() {};
+    checkForWin() {
+
+        let win = false;
+        const ul = document.querySelector('#phrase ul').children;     
+        
+        const hiddenLetters = document.querySelectorAll('.hide');
+
+       for (let i = 0; i < ul.length; i++) {
+            if (hiddenLetters.length === 0 ){
+                win =true;
+                console.log("win");
+                this.gameOver(true) 
+            }else{
+                win = false
+            }
+        }
+
+        return win;
+    };
 
     /**
     * Increases the value of the missed property
     * Removes a life from the scoreboard
     * Checks if player has remaining lives and ends game if player is out
     */
-    removeLife() {};
+    removeLife() {
+
+        const hearts = document.querySelectorAll('.tries img');
+		this.missed += 1;   
+
+		this.missed === 5 ? this.gameOver(false) : (hearts[this.missed - 1].src = 'images/lostHeart.png');
+    };
 
     /**
-    * Displays game over message
+    * Displays game over message, and clear the phrase ul
     * @param {boolean} gameWon - Whether or not the user won the game
     */
-    gameOver(gameWon) {};
-  
+    gameOver(gameWon) {
+        const Overlay = document.getElementById('overlay');
+		const gameOvrMsg = document.getElementById('game-over-message');
+
+        if (gameWon) {
+            gameOvrMsg.innerHTML = 'Congrats! You have guessed the Doctor who phrase!';
+            Overlay.className = 'win';
+            Overlay.style.display = 'block';
+        } else {
+            gameOvrMsg.textContent = "Sorry, you lost, why don't you try again? :(";
+            Overlay.className = 'lose';
+            Overlay.style.display = 'block';
+        }
+   
+        //reset  for new game
+        document.querySelector('#phrase ul').innerHTML = '';
+
+        let keysChosen = document.querySelectorAll('.chosen');
+        keysChosen.forEach(keys => keys.className = "key" );
+
+        let keysWrong = document.querySelectorAll('.wrong');
+        keysWrong.forEach(keys => keys.className = "key" );
+        
+
+        this.missed = 0;
+        //Reset hearts
+        const hearts = document.querySelectorAll('.tries img');
+        hearts.forEach(heart => heart.src = "images/liveHeart.png " );
+};
+
 }
