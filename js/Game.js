@@ -15,11 +15,11 @@ class Game {
     * @return {array} An array of Doctor who phrases that could be used in the game
     */
     createPhrases(){
-        const phrases = [   new Phrase('Exterminate'),  
-                            new Phrase('Bow ties are cool'),
-                            new Phrase('Spoilers'), 
-                            new Phrase('Fantastic'),  
-                            new Phrase('The Doctor lies'),                          
+        const phrases = [   new Phrase('exterminate'),  
+                            new Phrase('bow ties are cool'),
+                            new Phrase('spoilers'), 
+                            new Phrase('fantastic'),  
+                            new Phrase('the Doctor lies'),                          
                         ];
         return  phrases;
     };
@@ -40,8 +40,34 @@ class Game {
         document.getElementById('overlay').style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
         console.log(this.activePhrase );
-
         this.activePhrase.addPhraseToDisplay();
     };
+
+    handleInteraction(e){
+        //console.log(e.target.innerHTML);
+        //console.log(this.activePhrase);
+       /// this.activePhrase.checkLetter(e.target.innerHTML);
+       this.activePhrase.showMatchedLetter(e.target.innerHTML);
+
+    };
+
+    /**
+    * Checks for winning move
+    * @return {boolean} True if game has been won, false if game wasn't won
+    */
+    checkForWin() {};
+
+    /**
+    * Increases the value of the missed property
+    * Removes a life from the scoreboard
+    * Checks if player has remaining lives and ends game if player is out
+    */
+    removeLife() {};
+
+    /**
+    * Displays game over message
+    * @param {boolean} gameWon - Whether or not the user won the game
+    */
+    gameOver(gameWon) {};
   
 }

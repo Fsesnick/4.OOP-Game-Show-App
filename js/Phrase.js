@@ -32,7 +32,34 @@ addPhraseToDisplay(){
    }    
   
 };
+/**
+* Checks if passed letter is in phrase
+* @param (string) letter - Letter to check
+*/
+checkLetter(letter) {
+    this.letter = letter; 
+    //console.log(this.phrase.includes(letter));
+   return this.phrase.includes(letter);
+};
+
+/**
+* Displays passed letter on screen after a match is found
+* @param (string) letter - Letter to display
+*/
+showMatchedLetter(letter) {
+    if(this.checkLetter(letter)){
+        let matchedLetters = document.querySelectorAll(`.${letter}`);
+
+        for(let i = 0; i < matchedLetters.length; i++){
+        matchedLetters[i].classList.remove('hide');
+        matchedLetters[i].classList.add('show');
+        }
+     }
+};
 
 }
+
+
+
 /*const phrase = new Phrase('New phrase');
 phrase.addPhraseToDisplay();*/

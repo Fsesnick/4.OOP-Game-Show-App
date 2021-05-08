@@ -9,16 +9,16 @@ const game = new Game();
  * Listens for click on `btn__reset` and calls startGame() on game object
  */
  document.getElementById('btn__reset').addEventListener('click', function(){
-
     console.log('HERE');
     game.startGame();
 });
+
+
 /** 
  * Listens for click on qwerty buttons 
  */
-document.getElementById('qwerty').addEventListener('click', function(){
-    console.log('HERE');
-  
+document.getElementById('qwerty').addEventListener('click', function(evt){
+    game.handleInteraction(evt);
 });
 
 /*const game = new Game();
