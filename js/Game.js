@@ -49,11 +49,17 @@ class Game {
         if(this.activePhrase.checkLetter(button.target.innerHTML)){
           this.activePhrase.showMatchedLetter(button.target.innerHTML);
           this.checkForWin();
-          button.target.classList = 'chosen';
           
-       }else{
-           this.removeLife();
-           button.target.classList = 'wrong';
+        if(button.target.className != 'keyrow'){
+                button.target.classList = 'chosen';
+          }        
+          
+       }else{          
+
+           if(button.target.className != 'keyrow'){          
+                button.target.classList = 'wrong';
+                this.removeLife();
+           }           
        }
 
     };
