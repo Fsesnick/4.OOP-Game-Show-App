@@ -43,7 +43,7 @@ class Game {
         console.log(this.activePhrase );
         this.activePhrase.addPhraseToDisplay();
     };
-
+// https://www.w3schools.com/howto/howto_js_add_class.asp
     handleInteraction(button){
   
         if(this.activePhrase.checkLetter(button.target.innerHTML)){
@@ -51,13 +51,13 @@ class Game {
           this.checkForWin();
           
         if(button.target.className != 'keyrow'){
-                button.target.classList = 'chosen';
+                button.target.classList.add('chosen');
           }        
           
        }else{          
 
            if(button.target.className != 'keyrow'){          
-                button.target.classList = 'wrong';
+                button.target.classList.add('wrong');
                 this.removeLife();
            }           
        }
@@ -122,12 +122,8 @@ class Game {
         //reset  for new game
         document.querySelector('#phrase ul').innerHTML = '';
 
-        let keysChosen = document.querySelectorAll('.chosen');
-        keysChosen.forEach(keys => keys.className = "key" );
-
-        let keysWrong = document.querySelectorAll('.wrong');
-        keysWrong.forEach(keys => keys.className = "key" );
-        
+        let resetKeys = document.querySelectorAll('.key');
+        resetKeys.forEach(keys => keys.classList.remove("wrong","chosen"));
 
         this.missed = 0;
         //Reset hearts
