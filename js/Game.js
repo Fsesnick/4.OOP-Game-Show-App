@@ -43,20 +43,25 @@ class Game {
         this.activePhrase = this.getRandomPhrase();
         console.log(this.activePhrase );
         this.activePhrase.addPhraseToDisplay();
+
+        let K = document.querySelectorAll('.key');
+        K.forEach(button => {
+            button.className = 'key';
+        });
     };
 // https://www.w3schools.com/howto/howto_js_add_class.asp
     handleInteraction(button){
   
         if(this.activePhrase.checkLetter(button.target.innerHTML)){
           this.activePhrase.showMatchedLetter(button.target.innerHTML);
-         if(this.checkForWin()){
-            this.gameOver(true);
-         }
-          
-        if(button.target.className != 'keyrow'){
-                button.target.classList.add('chosen');
-                button.target.disabled = true;
-          }        
+            if(this.checkForWin()){
+                this.gameOver(true);             
+            }
+            
+            if(button.target.className != 'keyrow'){
+                    button.target.classList.add('chosen');
+                    button.target.disabled = true;
+            }        
           
        }else{          
 
@@ -83,8 +88,6 @@ class Game {
        for (let i = 0; i < ul.length; i++) {
             if (hiddenLetters.length === 0 ){
                 win =true;
-                console.log("win");
-               // this.gameOver(true) 
             }else{
                 win = false
             }
@@ -117,28 +120,35 @@ class Game {
         if (gameWon) {
             gameOvrMsg.innerHTML = 'Congrats! You have guessed the Doctor who phrase!';
             Overlay.className = 'win';
-            Overlay.style.display = 'block';
+            Overlay.style.display = "flex";            
+            this.resetGame(); 
         } else {
             gameOvrMsg.textContent = "Sorry, you lost, why don't you try again? :(";
             Overlay.className = 'lose';
-            Overlay.style.display = 'block';
+            Overlay.style.display = "flex";
+            this.resetGame(); 
         }
+            
         
-        Overlay.style.display = "flex";
+    };  
+    resetGame(){
+
         //reset  for new game
         document.querySelector('#phrase ul').innerHTML = '';
 
         let resetKeys = document.querySelectorAll('.key');
         console.log(resetKeys);
+
         for(const key of resetKeys) {
             key.disabled = false;
             key.classList.remove('wrong', 'chosen');
         } 
-
+       
         this.missed = 0;
         //Reset hearts
         const hearts = document.querySelectorAll('.tries img');
         hearts.forEach(heart => heart.src = "images/liveHeart.png " );
-};
+    };
+   
 
 }
