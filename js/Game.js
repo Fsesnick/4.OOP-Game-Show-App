@@ -46,7 +46,7 @@ class Game {
 
         let K = document.querySelectorAll('.key');
         K.forEach(button => {
-            button.className = 'key';
+            button.className = 'key';            
         });
     };
 // https://www.w3schools.com/howto/howto_js_add_class.asp
@@ -137,12 +137,11 @@ class Game {
         document.querySelector('#phrase ul').innerHTML = '';
 
         let resetKeys = document.querySelectorAll('.key');
-        console.log(resetKeys);
+        //console.log(resetKeys);
 
-        for(const key of resetKeys) {
-            key.disabled = false;
+        for(const key of resetKeys) {            
             key.classList.remove('wrong', 'chosen');
-        } 
+         } 
        
         this.missed = 0;
         //Reset hearts

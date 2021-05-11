@@ -11,6 +11,11 @@ const game = new Game();
  document.getElementById('btn__reset').addEventListener('click', function(){
     console.log('HERE');
     game.startGame();
+    
+    let resetKeys = document.querySelectorAll('.key');
+    for(const key of resetKeys) {      
+        key.disabled = false;
+     } 
 });
 
 
