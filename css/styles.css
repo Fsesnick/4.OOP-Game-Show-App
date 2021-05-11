@@ -173,6 +173,7 @@ button {
   left: 0;
   right: 0;
   border-radius: 5px;
+  padding: 50px 0;
 }
 
 .title {
@@ -184,7 +185,7 @@ button {
 }
 
 .start a {
-  color: #fff;
+  color: #a7c5eb;
 }
 
 .win {
@@ -196,7 +197,7 @@ button {
 }
 
 .lose {
-  background-color: #f5785f;
+  background-color: #709fb0;
 }
 
 .lose a {

@@ -19,7 +19,7 @@ class Game {
                             new Phrase('bow ties are cool'),
                             new Phrase('spoilers'), 
                             new Phrase('fantastic'),  
-                            new Phrase('the Doctor lies'),                          
+                            new Phrase('the doctor lies'),                          
                         ];
         return  phrases;
     };
@@ -38,6 +38,7 @@ class Game {
     * Begins game by selecting a random phrase and displaying it to user
     */
     startGame() {
+        
         document.getElementById('overlay').style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
         console.log(this.activePhrase );
@@ -48,16 +49,20 @@ class Game {
   
         if(this.activePhrase.checkLetter(button.target.innerHTML)){
           this.activePhrase.showMatchedLetter(button.target.innerHTML);
-          this.checkForWin();
+         if(this.checkForWin()){
+            this.gameOver(true);
+         }
           
         if(button.target.className != 'keyrow'){
                 button.target.classList.add('chosen');
+                button.target.disabled = true;
           }        
           
        }else{          
 
            if(button.target.className != 'keyrow'){          
                 button.target.classList.add('wrong');
+                button.target.disabled = true;
                 this.removeLife();
            }           
        }
@@ -79,7 +84,7 @@ class Game {
             if (hiddenLetters.length === 0 ){
                 win =true;
                 console.log("win");
-                this.gameOver(true) 
+               // this.gameOver(true) 
             }else{
                 win = false
             }
@@ -118,12 +123,17 @@ class Game {
             Overlay.className = 'lose';
             Overlay.style.display = 'block';
         }
-   
+        
+        Overlay.style.display = "flex";
         //reset  for new game
         document.querySelector('#phrase ul').innerHTML = '';
 
         let resetKeys = document.querySelectorAll('.key');
-        resetKeys.forEach(keys => keys.classList.remove("wrong","chosen"));
+        console.log(resetKeys);
+        for(const key of resetKeys) {
+            key.disabled = false;
+            key.classList.remove('wrong', 'chosen');
+        } 
 
         this.missed = 0;
         //Reset hearts
