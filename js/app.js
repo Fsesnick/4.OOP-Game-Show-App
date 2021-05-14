@@ -9,12 +9,13 @@ let game;
  document.getElementById('btn__reset').addEventListener('click', function(){
 
     game = new Game();
-    game.startGame();
-
+    
     let resetKeys = document.querySelectorAll('.key');
     for(const key of resetKeys) {      
         key.disabled = false;
      } 
+
+    game.startGame();
 });
 
 /** 
