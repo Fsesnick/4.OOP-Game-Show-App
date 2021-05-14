@@ -2,28 +2,30 @@
  * Project 4 - OOP Game App
  * app.js */
 
-//const phrase = new Phrase();
-const game = new Game();
-
+let game;
 /** 
  * Listens for click on `btn__reset` and calls startGame() on game object
  */
  document.getElementById('btn__reset').addEventListener('click', function(){
-    console.log('HERE');
+
+    game = new Game();
     game.startGame();
-    
+
     let resetKeys = document.querySelectorAll('.key');
     for(const key of resetKeys) {      
         key.disabled = false;
      } 
 });
 
-
 /** 
  * Listens for click on qwerty buttons 
  */
 document.getElementById('qwerty').addEventListener('click', function(evt){
-    game.handleInteraction(evt);
+   
+    if(evt.target.className === 'key'){
+         game.handleInteraction(evt);
+    }
+    
 });
 
 /*const game = new Game();

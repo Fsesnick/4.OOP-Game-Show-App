@@ -58,18 +58,18 @@ class Game {
                 this.gameOver(true);             
             }
             
-            if(button.target.className != 'keyrow'){
+            
                     button.target.classList.add('chosen');
                     button.target.disabled = true;
-            }        
+                  
           
        }else{          
 
-           if(button.target.className != 'keyrow'){          
+                    
                 button.target.classList.add('wrong');
                 button.target.disabled = true;
                 this.removeLife();
-           }           
+                     
        }
 
     };
