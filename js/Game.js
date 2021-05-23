@@ -19,7 +19,12 @@ class Game {
                             new Phrase('bow ties are cool'),
                             new Phrase('spoilers'), 
                             new Phrase('fantastic'),  
-                            new Phrase('the doctor lies'),                          
+                            new Phrase('the doctor lies'), 
+                            new Phrase('raxacoricofallapatorius'),
+                            new Phrase('raxacoricofallapatorius'),    
+                            new Phrase('hello sweetie'),
+                            new Phrase('time and relative dimension in space'),
+                            new Phrase('geronimo')                         
                         ];
         return  phrases;
     };
