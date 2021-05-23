@@ -46,7 +46,7 @@ class Game {
         
         document.getElementById('overlay').style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
-        console.log(this.activePhrase );
+        //console.log(this.activePhrase );
         this.activePhrase.addPhraseToDisplay();
 
         let K = document.querySelectorAll('.key');
